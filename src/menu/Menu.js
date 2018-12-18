@@ -12,7 +12,7 @@ export default class Menu extends React.Component{
     if(this.props.onTitleClick){
       onTitleClick({key, domEvent: e})
     }
-    if(this.onClick){
+    if(onClick){
       onClick({key, domEvent: e})
     }
   }

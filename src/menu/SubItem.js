@@ -29,7 +29,7 @@ export default class MenuSubItem extends React.Component{
     if(onTitleClick){
       onTitleClick({iKey, domEvent: e})
     }
-    if(this.onClick){
+    if(onClick){
       onClick({iKey, domEvent: e})
     }
   }

@@ -6,7 +6,7 @@ export const Item = (props) => {
     if(onTitleClick){
       onTitleClick({iKey, domEvent: e})
     }
-    if(this.onClick){
+    if(onClick){
       onClick({iKey, domEvent: e})
     }
   }

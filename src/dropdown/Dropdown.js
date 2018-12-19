@@ -34,7 +34,7 @@ class Dropdown extends React.Component{
 		let { dropdownChild } = this.props
 		let { left, bottom } = this.dimensions
 		return(
-			<div style={{left, top: bottom, position: 'fixed', zIndex: 9}}>
+			<div style={{left, top: bottom, zIndex: 9}}>
 				{dropdownChild}
 			</div>
 		)

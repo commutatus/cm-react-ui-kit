@@ -6,6 +6,7 @@ addDecorator(
     { name: 'twitter', value: '#00aced', default: true },
     { name: 'facebook', value: '#3b5998' },
     { name: 'grey', value: '#D3D3D3'},
+    {name: 'white', value: 'transparent' }
   ])
 );
 

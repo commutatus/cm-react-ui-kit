@@ -11,9 +11,9 @@
 
 .dropdown-body {
     width: 150px;
-    height: 100px;
+    // min-height: 100px;
     background-color: $white;
     border-radius: $round-2;
     box-shadow: $dropdown-shadow;
-    transition: background 1s cubic-bezier(.075, .82, .165, 1);
 }
+

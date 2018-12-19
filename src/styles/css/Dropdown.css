@@ -126,8 +126,6 @@ To be used for rendering a different layout. xs is for small-phones, sm for medi
 
 .dropdown-body {
   width: 150px;
-  height: 100px;
   background-color: #fff;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }

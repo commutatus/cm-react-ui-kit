@@ -56,12 +56,12 @@ export default class MenuSubItem extends React.Component{
         onMouseLeave={this.onMouseLeave}  
         style={{position: "relative"}}
       >
-        <div className="item-title" onClick={this.handleClick}>
+        <div className="item-title menu-list" onClick={this.handleClick}>
           {this.props.title}
         </div>
         {
-          (showMore) &&
-          <div className="sub-item-list" style={{...(this._getStyle(this.dimensions)), width: 100, position: 'absolute'}}>
+          (showMore || true) &&
+          <div className="sub-menu-list" style={{...(this._getStyle(this.dimensions))}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))
             }

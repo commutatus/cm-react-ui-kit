@@ -14,20 +14,16 @@ storiesOf('Dropdown', module)
     <Dropdown dropdownChild={
       <Menu>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.SubItem title={"hover me..."}>
           <Menu.Item>
-            <span><input type="checkbox" /></span>
             Hello brother
           </Menu.Item>
         </Menu.SubItem>

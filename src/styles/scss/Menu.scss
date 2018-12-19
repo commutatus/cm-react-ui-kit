@@ -1,17 +1,22 @@
 @import 'variables';
 @import 'mixins';
 
-.menu-container {
-    width: 250px;
-    height: 160px;	
-    padding: 10px;
-    background-color: $white;
-    border-radius: $round-2;
-    box-shadow: $dropdown-shadow;
+.left-top-menu {
 
+}
+
+.right-top-menu {
+
+}   
+
+.menu-container {
+    width: 100%;
+    padding: 5px 10px;
+    box-sizing: border-box;
     .menu-list {
-        padding: 5px;
+        padding: 7px;
         @include dropdownFont();
+        transition: all .3s;
         cursor: pointer;
         &:hover {
             background-color: #F4F5F7;
@@ -19,3 +24,11 @@
     }
 }
 
+.sub-menu-list {
+    position: absolute;
+    width: 120px;
+    padding: 5px 10px;
+    background-color: $white;
+    border-radius: $round-2;
+    box-shadow: $dropdown-shadow; 
+}

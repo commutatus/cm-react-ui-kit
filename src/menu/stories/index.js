@@ -13,3 +13,12 @@ storiesOf('Menu', module)
       </Menu.Item>
     </Menu>
   ))
+
+  .add('list-item', () => (
+   Array(10).fill().map(item => (
+     <Menu.Item>
+       <span><input type="checkbox" /></span>
+       Hello brother
+     </Menu.Item>
+   ))
+ ))

@@ -11,7 +11,7 @@ export const Item = (props) => {
     }
   }
   return(
-    <div className="list-item-child" onClick={handleClick}>
+    <div className="menu-list" onClick={handleClick}>
       {props.children}
     </div>
   )

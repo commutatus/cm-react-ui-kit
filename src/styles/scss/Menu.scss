@@ -1,8 +1,19 @@
+@import 'variables';
+@import 'mixins';
 
-.dropdown-parent-card {
+.menu-container {
+    width: 250px;
     height: 160px;	
-    width: 250px;	
-    border-radius: 2px;	
-    background-color: #FFFFFF;	
-    box-shadow: 1px 2px 6px 0 rgba(0,0,0,0.1);
+    padding: 10px;
+    @include dropdownCardUi();
+
+    .menu-list {
+        padding: 5px;
+        @include dropdownFont();
+        cursor: pointer;
+        &:hover {
+            background-color: #F4F5F7;
+        }
+    }
 }
+

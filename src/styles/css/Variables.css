@@ -1,0 +1,59 @@
+/* Color Variables*/
+/* Typography */
+/* Card Shadows (Mostly going to be using $shadow-1) */
+/* Border */
+/* Card Border Radius*/
+/* Breakpoints
+How to use-
+
+.class-to-be-used-on {
+     @include breakpoint($variable-name) {
+
+       #CSS styles here
+     }
+   }
+
+*/
+/* Media Query Classes
+
+To be used for rendering a different layout. xs is for small-phones, sm for medium-phones md for tablets, lg for small laptops.
+
+*/
+.hidden-xs-up {
+  display: none !important; }
+
+@media (max-width: 575px) {
+  .hidden-xs-down {
+    display: none !important; } }
+
+@media (min-width: 576px) {
+  .hidden-sm-up {
+    display: none !important; } }
+
+@media (max-width: 767px) {
+  .hidden-sm-down {
+    display: none !important; } }
+
+@media (min-width: 992px) {
+  .hidden-md-up {
+    display: none !important; } }
+
+@media (max-width: 991px) {
+  .hidden-md-down {
+    display: none !important; } }
+
+@media (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important; } }
+
+@media (max-width: 1199px) {
+  .hidden-lg-down {
+    display: none !important; } }
+
+@media (min-width: 1200px) {
+  .hidden-xl-up {
+    display: none !important; } }
+
+@media (max-width: 1200px) {
+  .hidden-xl-down {
+    display: none !important; } }

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { relative } from 'path';
 
 export default class MenuSubItem extends React.Component{
   constructor(props){
@@ -11,9 +12,7 @@ export default class MenuSubItem extends React.Component{
   }
 
   componentDidMount(){
-    let elem = document.getElementById("cascading-dropdown")
-    if(elem)
-      this.dimensions = elem.getBoundingClientRect()
+    this.dimensions  = ReactDOM.findDOMNode(this).parentNode.getBoundingClientRect()
   }
 
   onMouseEnter = (e) => {
@@ -39,10 +38,12 @@ export default class MenuSubItem extends React.Component{
 
   _getStyle = (dimensions) => {
     if(!dimensions) return {}
-    if((dimensions.right > window.screenWidth * 75)/ 100){
-      return {right: dimensions.left, top: this.top}
+    console.log(dimensions);
+    
+    if(dimensions.right > (document.documentElement.clientWidth * 75)/ 100){
+      return {right: dimensions.right - dimensions.left, top: this.top}
     }
-    return {left: dimensions.right, top: this.top}
+    return {left: dimensions.right - dimensions.left, top: this.top}
   }
   
 
@@ -52,13 +53,14 @@ export default class MenuSubItem extends React.Component{
       <div
         className="list-item"
         onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}        
+        onMouseLeave={this.onMouseLeave}  
+        style={{position: "relative"}}
       >
         <div className="item-title" onClick={this.handleClick}>
           {this.props.title}
         </div>
         {
-          (showMore || true) &&
+          (showMore) &&
           <div className="sub-item-list" style={{...(this._getStyle(this.dimensions)), width: 100, position: 'absolute'}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))

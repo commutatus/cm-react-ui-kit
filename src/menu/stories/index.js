@@ -20,7 +20,6 @@ storiesOf('Menu', module)
         </Menu.Item>
         <Menu.SubItem title={"hover me..."}>
           <Menu.Item>
-            <span><input type="checkbox" /></span>
             Hello brother
           </Menu.Item>
         </Menu.SubItem>
@@ -45,7 +44,6 @@ storiesOf('Menu', module)
         </Menu.Item>
         <Menu.SubItem title={"hover me..."}>
           <Menu.Item>
-            <span><input type="checkbox" /></span>
             Hello brother
           </Menu.Item>
         </Menu.SubItem>

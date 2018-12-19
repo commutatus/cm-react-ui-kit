@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/css/Global.css'
+import '../styles/css/Menu.css'
 
 export default class Menu extends React.Component{
   constructor(props){
@@ -22,7 +22,7 @@ export default class Menu extends React.Component{
       <div 
         onClick={this._handleClick}
         className="dropdown-parent"
-
+        style={{backgroundColor: 'blue'}}
       >
         {
           React.Children.map(this.props.children, (child => React.cloneElement(child, {handleClick: this.handleClick})))

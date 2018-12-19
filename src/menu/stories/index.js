@@ -7,15 +7,12 @@ storiesOf('Menu', module)
     <div style={{width: '200px'}} className="left-top-align">
       <Menu>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.SubItem title={"hover me..."}>
@@ -31,15 +28,12 @@ storiesOf('Menu', module)
     <div style={{width: '200px', float: 'right'}} className="right-top-align">
       <Menu>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.Item>
-          <span><input type="checkbox" /></span>
           Hello brother
         </Menu.Item>
         <Menu.SubItem title={"hover me..."}>
@@ -109,3 +103,12 @@ storiesOf('Menu', module)
       </Menu.Item>
     ))
   ))
+
+  .add('list-item', () => (
+   Array(10).fill().map(item => (
+     <Menu.Item>
+       <span><input type="checkbox" /></span>
+       Hello brother
+     </Menu.Item>
+   ))
+ ))

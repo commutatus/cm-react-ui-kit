@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'mixins';
+
+.dropdown-container {
+    box-sizing: border-box;
+    display: inline-block;
+    .dropdown-btn {
+        cursor: pointer;
+    }
+}
+
+.dropdown-body {
+    width: 150px;
+    // min-height: 100px;
+    background-color: $white;
+    border-radius: $round-2;
+    box-shadow: $dropdown-shadow;
+}
+

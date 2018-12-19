@@ -21,8 +21,7 @@ export default class Menu extends React.Component{
     return(
       <div 
         onClick={this._handleClick}
-        className="dropdown-parent"
-        style={{backgroundColor: 'blue'}}
+        className="menu-container"
         id="x"
       >
         {

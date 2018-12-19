@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import '../styles/css/Dropdown.css'
 
 class Dropdown extends React.Component{
 	constructor(props){
@@ -33,7 +34,7 @@ class Dropdown extends React.Component{
 		let { dropdownChild } = this.props
 		let { left, bottom } = this.dimensions
 		return(
-			<div style={{left, top: bottom, position: 'fixed', zIndex: 9}}>
+			<div style={{left, top: bottom, zIndex: 9}}>
 				{dropdownChild}
 			</div>
 		)
@@ -56,17 +57,19 @@ class Dropdown extends React.Component{
 
 	render() {
 		return(
-			<div id="cascading-dropdown-btn" onClick={this._handleClick}>
-        {this.props.children}
-        <div id="dropdown-parent">
+			<div id="cascading-dropdown-btn" className="dropdown-container" onClick={this._handleClick}>
+        <div className="dropdown-btn">{this.props.children}</div>
 					{
 						this.state.showDropdown && 
 						ReactDOM.createPortal(
-							this._getDropdown(),
-								this.elem
+							<div className="dropdown-body">
+								{
+									this._getDropdown()
+								}
+							</div>,
+							this.elem
 						)
 					}
-				</div>
 			</div>
 		)
 	}

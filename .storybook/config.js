@@ -1,4 +1,13 @@
-import { configure } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
+import { withBackgrounds } from '@storybook/addon-backgrounds';
+
+addDecorator(
+  withBackgrounds([
+    { name: 'twitter', value: '#00aced', default: true },
+    { name: 'facebook', value: '#3b5998' },
+    { name: 'grey', value: '#D3D3D3'},
+  ])
+);
 
 function loadStories() {
   require('../src/menu/stories');

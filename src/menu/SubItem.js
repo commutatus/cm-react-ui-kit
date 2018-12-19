@@ -14,11 +14,12 @@ export default class MenuSubItem extends React.Component{
     this.dimensions = ReactDOM.findDOMNode(this).parentNode.getBoundingClientRect()
   }
 
-  onMouseEnter = () => {
+  onMouseEnter = (e) => {
+    this.top = e.target.offsetTop
     this.setState({showMore: true})
   }
   
-  onMouseLeave = () => {
+  onMouseLeave = (e) => {
     this.setState({showMore: false})
   }
 
@@ -37,7 +38,6 @@ export default class MenuSubItem extends React.Component{
   render(){
     let {showMore} = this.state
     let {width} = this.dimensions
-    
     return(
       <div
         className="list-item"
@@ -49,7 +49,7 @@ export default class MenuSubItem extends React.Component{
         </div>
         {
           showMore &&
-          <div className="sub-item-list" style={{left: width, top: 0, width: 50, position: 'absolute'}}>
+          <div className="sub-item-list" style={{left: width, top: this.top, width: 50, position: 'absolute'}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))
             }

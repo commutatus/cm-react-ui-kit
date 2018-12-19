@@ -5,7 +5,9 @@
     width: 250px;
     height: 160px;	
     padding: 10px;
-    @include dropdownCardUi();
+    background-color: $white;
+    border-radius: $round-2;
+    box-shadow: $dropdown-shadow;
 
     .menu-list {
         padding: 5px;

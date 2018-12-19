@@ -118,17 +118,13 @@ To be used for rendering a different layout. xs is for small-phones, sm for medi
   .hidden-xl-down {
     display: none !important; } }
 
-.menu-container {
-  width: 250px;
-  height: 160px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-  .menu-container .menu-list {
-    padding: 5px;
-    color: #4A4A4A;
-    font-size: 14px;
+.dropdown-container {
+  box-sizing: border-box;
+  display: inline-block; }
+  .dropdown-container .dropdown-btn {
     cursor: pointer; }
-    .menu-container .menu-list:hover {
-      background-color: #F4F5F7; }
+
+.dropdown-body {
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 1px 2px 6px 0 rgba(0, 0, 0, 0.1); }

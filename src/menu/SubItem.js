@@ -11,14 +11,17 @@ export default class MenuSubItem extends React.Component{
   }
 
   componentDidMount(){
-    this.dimensions = ReactDOM.findDOMNode(this).parentNode.getBoundingClientRect()
+    let elem = document.getElementById("cascading-dropdown")
+    if(elem)
+      this.dimensions = elem.getBoundingClientRect()
   }
 
-  onMouseEnter = () => {
+  onMouseEnter = (e) => {
+    this.top = e.target.offsetTop
     this.setState({showMore: true})
   }
   
-  onMouseLeave = () => {
+  onMouseLeave = (e) => {
     this.setState({showMore: false})
   }
 
@@ -34,10 +37,17 @@ export default class MenuSubItem extends React.Component{
     }
   }
 
+  _getStyle = (dimensions) => {
+    if(!dimensions) return {}
+    if((dimensions.right > window.screenWidth * 75)/ 100){
+      return {right: dimensions.left, top: this.top}
+    }
+    return {left: dimensions.right, top: this.top}
+  }
+  
+
   render(){
-    let {showMore} = this.state
-    let {width} = this.dimensions
-    
+    let {showMore} = this.state    
     return(
       <div
         className="list-item"
@@ -48,8 +58,8 @@ export default class MenuSubItem extends React.Component{
           {this.props.title}
         </div>
         {
-          showMore &&
-          <div className="sub-item-list" style={{rigth: 60+width, top: 0, width: 50, position: 'absolute'}}>
+          (showMore || true) &&
+          <div className="sub-item-list" style={{...(this._getStyle(this.dimensions)), width: 100, position: 'absolute'}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))
             }

@@ -56,15 +56,17 @@ class Dropdown extends React.Component{
 
 	render() {
 		return(
-			<div className="cascading-dropdown" id="cascading-dropdown-btn" onClick={this._handleClick}>
+			<div id="cascading-dropdown-btn" onClick={this._handleClick}>
         {this.props.children}
-        {
-          this.state.showDropdown && 
-          ReactDOM.createPortal(
-            this._getDropdown(),
-              this.elem
-          )
-        }
+        <div id="dropdown-parent">
+					{
+						this.state.showDropdown && 
+						ReactDOM.createPortal(
+							this._getDropdown(),
+								this.elem
+						)
+					}
+				</div>
 			</div>
 		)
 	}

@@ -13,8 +13,10 @@
   "bugs": {
     "url": "https://github.com/viveksri96/massd/issues"
   },
+  "engine": ">= 8.9.0",
   "homepage": "https://github.com/viveksri96/massd#readme",
   "scripts": {
+    "storybook": "start-storybook -p 9001",
     "build-assets": "nodemon --watch src/styles/css -e css --exec cpy src/styles/css lib/styles/css --watch --recursive",
     "build-css": "node-sass-chokidar src/styles/scss -o src/styles/css --watch --recursive",
     "build-babel": "babel src --out-dir lib",
@@ -22,6 +24,7 @@
     "dev": "nodemon --watch src --exec npm-run-all -p build-css build-assets build-babel",
     "postinstall": "npm run build",
     "clean": "rimraf lib",
+    "prestart": "nvm use 8.9.0",
     "test": "jest"
   },
   "dependencies": {
@@ -40,6 +43,8 @@
     "source-map-loader": "^0.2.3"
   },
   "devDependencies": {
+    "@storybook/addon-backgrounds": "^4.1.2",
+    "@storybook/react": "^4.1.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",

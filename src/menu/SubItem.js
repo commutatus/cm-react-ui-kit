@@ -49,7 +49,7 @@ export default class MenuSubItem extends React.Component{
         </div>
         {
           showMore &&
-          <div className="sub-item-list" style={{left: width, top: 0, width: 50, position: 'absolute'}}>
+          <div className="sub-item-list" style={{rigth: 60+width, top: 0, width: 50, position: 'absolute'}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))
             }

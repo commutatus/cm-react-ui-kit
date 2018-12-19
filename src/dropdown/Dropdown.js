@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-
 class Dropdown extends React.Component{
 	constructor(props){
 		super(props)
@@ -13,7 +12,9 @@ class Dropdown extends React.Component{
 	_handleClick = (e) => {
 		let {showDropdown} = this.state
     if(!showDropdown){
-      this.dimensions = e.target.getBoundingClientRect();
+			this.dimensions = e.target.getBoundingClientRect();
+			console.log(this.dimensions);
+			
       window.addEventListener('click', this._handleOutsideClick)
       this._createDropdownElement()
       this.setState({showDropdown: !showDropdown})
@@ -47,6 +48,10 @@ class Dropdown extends React.Component{
         window.removeEventListener('click', this._handleOutsideClick)
       })
 		}
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('click', this._handleOutsideClick)
 	}
 
 	render() {

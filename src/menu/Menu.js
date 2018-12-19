@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/css/Global.css'
+import '../styles/css/Menu.css'
 
 export default class Menu extends React.Component{
   constructor(props){

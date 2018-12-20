@@ -2,7 +2,6 @@
   "name": "massd",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viveksri96/massd.git"
@@ -13,8 +12,9 @@
   "bugs": {
     "url": "https://github.com/viveksri96/massd/issues"
   },
-  "engine": ">= 8.9.0",
   "homepage": "https://github.com/viveksri96/massd#readme",
+  "engine": ">= 8.9.0",
+  "main": "./lib",
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build-assets": "cpy src/styles/css lib/styles/css",

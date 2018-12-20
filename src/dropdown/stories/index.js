@@ -11,24 +11,26 @@ storiesOf('Dropdown', module)
   ))
 
   .add('nested Dropdown', () => (
-    <Dropdown dropdownChild={
-      <Menu>
-        <Menu.Item>
-          Hello brother
-        </Menu.Item>
-        <Menu.Item>
-          Hello brother
-        </Menu.Item>
-        <Menu.Item>
-          Hello brother
-        </Menu.Item>
-        <Menu.SubItem title={"hover me..."}>
+    <div style={{float: "right"}}>
+      <Dropdown dropdownChild={
+        <Menu>
           <Menu.Item>
             Hello brother
           </Menu.Item>
-        </Menu.SubItem>
-      </Menu>
-    }>
-      Press
-    </Dropdown>
+          <Menu.Item>
+            Hello brother
+          </Menu.Item>
+          <Menu.Item>
+            Hello brother
+          </Menu.Item>
+          <Menu.SubItem title={"hover me..."}>
+            <Menu.Item>
+              Hello brother
+            </Menu.Item>
+          </Menu.SubItem>
+        </Menu>
+      }>
+        Press
+      </Dropdown>
+    </div>
   ))

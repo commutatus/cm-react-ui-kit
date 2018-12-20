@@ -10,12 +10,10 @@ class Dropdown extends React.Component{
 		}
   }
 
-	_handleClick = (e) => {
+	_handleClick = () => {
 		let {showDropdown} = this.state
     if(!showDropdown){
-			this.dimensions = e.target.getBoundingClientRect();
-			console.log(this.dimensions);
-			
+			this.dimensions = ReactDOM.findDOMNode(this).getBoundingClientRect();
       window.addEventListener('click', this._handleOutsideClick)
       this._createDropdownElement()
       this.setState({showDropdown: !showDropdown})
@@ -30,11 +28,20 @@ class Dropdown extends React.Component{
     this.elem = elem
 	}
 
+	_getStyle = (dimensions) => {
+		if(!dimensions) return {}
+		let { left, bottom, right } = this.dimensions
+    if(right > (document.documentElement.clientWidth * 75)/ 100){
+      return {right: right - left, top: bottom}
+    }
+    return {left: right - left, top: bottom}
+  }
+
 	_getDropdown = () => {
 		let { dropdownChild } = this.props
 		let { left, bottom } = this.dimensions
 		return(
-			<div style={{left, top: bottom, zIndex: 9}}>
+			<div className="dropdown-body" style={{position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9}}>
 				{dropdownChild}
 			</div>
 		)
@@ -62,11 +69,7 @@ class Dropdown extends React.Component{
 					{
 						this.state.showDropdown && 
 						ReactDOM.createPortal(
-							<div className="dropdown-body">
-								{
-									this._getDropdown()
-								}
-							</div>,
+							this._getDropdown(),
 							this.elem
 						)
 					}

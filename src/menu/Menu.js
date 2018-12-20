@@ -22,7 +22,7 @@ export default class Menu extends React.Component{
       <div 
         onClick={this._handleClick}
         className="menu-container"
-        id="x"
+        style={{...this.props.style}}
       >
         {
           React.Children.map(this.props.children, (child => React.cloneElement(child, {handleClick: this.handleClick})))

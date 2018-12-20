@@ -125,7 +125,6 @@ To be used for rendering a different layout. xs is for small-phones, sm for medi
     cursor: pointer; }
 
 .dropdown-body {
-  width: 150px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }

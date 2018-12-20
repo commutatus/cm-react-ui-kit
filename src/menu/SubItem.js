@@ -38,8 +38,6 @@ export default class MenuSubItem extends React.Component{
 
   _getStyle = (dimensions) => {
     if(!dimensions) return {}
-    console.log(dimensions);
-    
     if(dimensions.right > (document.documentElement.clientWidth * 75)/ 100){
       return {right: dimensions.right - dimensions.left, top: this.top}
     }
@@ -60,7 +58,7 @@ export default class MenuSubItem extends React.Component{
           {this.props.title}
         </div>
         {
-          (showMore || true) &&
+          (showMore) &&
           <div className="sub-menu-list" style={{...(this._getStyle(this.dimensions))}}>
             {
               React.Children.map(this.props.children, (child => React.cloneElement(child)))

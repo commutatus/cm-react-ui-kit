@@ -29,6 +29,7 @@
   "dependencies": {
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
+    "animejs": "^2.2.0",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",

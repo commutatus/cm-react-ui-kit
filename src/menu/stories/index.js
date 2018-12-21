@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Menu from '../../menu'
+import { CSSTransition } from 'react-transition-group'
+import '../../styles/css/Dropdown.css'
 
 storiesOf('Menu', module)
   .add('left top aligned menu', () => (
@@ -43,6 +45,16 @@ storiesOf('Menu', module)
         </Menu.SubItem>
       </Menu>
     </div>
+  ))
+
+  .add('testing Transitions...', () => (
+    <CSSTransition
+      in={true}
+      timeout={300}
+      className="example"
+    >
+      <div>hello brother</div>
+    </CSSTransition>
   ))
   
   // .add('bottom right aligned menu', () => (

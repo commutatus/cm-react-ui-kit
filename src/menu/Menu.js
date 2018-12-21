@@ -21,7 +21,7 @@ export default class Menu extends React.Component{
     return(
       <div 
         onClick={this._handleClick}
-        className="menu-container"
+        className={`menu-container ${this.props.className}`}
         style={{...this.props.style}}
       >
         {

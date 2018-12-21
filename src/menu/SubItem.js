@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { relative } from 'path';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class MenuSubItem extends React.Component{
   constructor(props){
@@ -59,11 +59,18 @@ export default class MenuSubItem extends React.Component{
         </div>
         {
           (showMore) &&
-          <div className="sub-menu-list" style={{...(this._getStyle(this.dimensions))}}>
-            {
-              React.Children.map(this.props.children, (child => React.cloneElement(child)))
-            }
-          </div>
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={600}
+            classNames="fade"
+          >
+            <div className="sub-menu-list" style={{...(this._getStyle(this.dimensions))}}>
+              {
+                React.Children.map(this.props.children, (child => React.cloneElement(child)))
+              }
+            </div>
+          </CSSTransition>
         }
       </div>
     )

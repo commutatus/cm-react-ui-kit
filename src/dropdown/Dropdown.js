@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import '../styles/css/Dropdown.css'
 
 class Dropdown extends React.Component{
@@ -13,7 +14,7 @@ class Dropdown extends React.Component{
 	_handleClick = () => {
 		let {showDropdown} = this.state
     if(!showDropdown){
-			this.dimensions = ReactDOM.findDOMNode(this).getBoundingClientRect();
+			this.dimensions = document.getElementById('dropdown-btn').getBoundingClientRect();
       window.addEventListener('click', this._handleOutsideClick)
       this._createDropdownElement()
       this.setState({showDropdown: !showDropdown})
@@ -23,7 +24,7 @@ class Dropdown extends React.Component{
 	_createDropdownElement = () => {
     let elem = document.createElement('div')
     elem.style = "position: relative; left: 0px; top: 0px;"
-    elem.id = "cascading-dropdown"
+    elem.id = "dropdown"
     document.body.appendChild(elem)
     this.elem = elem
 	}
@@ -32,24 +33,34 @@ class Dropdown extends React.Component{
 		if(!dimensions) return {}
 		let { left, bottom, right } = this.dimensions
     if(right > (document.documentElement.clientWidth * 75)/ 100){
-      return {right: right - left, top: bottom}
+      return {right: document.documentElement.clientWidth - right, top: bottom}
     }
-    return {left: right - left, top: bottom}
+    return {left: left, top: bottom}
   }
 
+	startDebugging = (node) => {
+		console.log(node)
+	}
 	_getDropdown = () => {
 		let { dropdownChild } = this.props
 		let { left, bottom } = this.dimensions
 		return(
 			<div className="dropdown-body" style={{position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9}}>
-				{dropdownChild}
+				<CSSTransition
+					in={this.state.showDropdown}
+					appear={this.state.showDropdown}
+					timeout={600}
+					classNames="collapse"
+				>
+					{dropdownChild}
+				</CSSTransition>
 			</div>
 		)
 	}
 
 	_handleOutsideClick = (e) => {
-    let elem = document.getElementById("cascading-dropdown")
-    let elemBtn = document.getElementById("cascading-dropdown-btn")
+    let elem = document.getElementById("dropdown")
+    let elemBtn = document.getElementById("dropdown-btn")
 		if(!elem.contains(e.target) && !elemBtn.contains(e.target)){
       elem.remove()
 			this.setState({showDropdown: false}, () => {
@@ -64,8 +75,14 @@ class Dropdown extends React.Component{
 
 	render() {
 		return(
-			<div id="cascading-dropdown-btn" className="dropdown-container" onClick={this._handleClick}>
-        <div className="dropdown-btn">{this.props.children}</div>
+			<div className="dropdown-container">
+				<div 
+					id="dropdown-btn" 
+					onClick={this._handleClick} 
+					className="dropdown-btn"
+				>
+					{this.props.children}
+				</div>
 					{
 						this.state.showDropdown && 
 						ReactDOM.createPortal(

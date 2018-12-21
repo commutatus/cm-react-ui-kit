@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'mixins';
+@import 'global';
 
 .dropdown-container {
     box-sizing: border-box;
@@ -10,10 +11,37 @@
 }
 
 .dropdown-body {
-    // width: 150px;
-    // min-height: 100px;
     background-color: $white;
     border-radius: $round-2;
     box-shadow: $dropdown-shadow;
 }
 
+.collapse-appear{
+    max-height: 0;
+    overflow: hidden;
+}
+
+.collapse-appear.collapse-appear-active{
+    max-height: 500px;
+    transition: max-height 6s cubic-bezier(.075, .82, .165, 1);
+}
+
+// .collapse-enter {
+//     max-height: 0;
+//     overflow: hidden;
+// }
+  
+// .collapse-enter.collapse-enter-active {
+//     max-height: 500px;
+//     transition: max-height 1s cubic-bezier(.075, .82, .165, 1);
+// }
+
+.collapse-exit {
+    max-height: 1;
+    overflow: hidden;
+}
+
+.collapse-exit.collapse-exit-active {
+    max-height: 0.01;
+    transition: max-height 300ms ease-in;
+}   

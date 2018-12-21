@@ -12,7 +12,8 @@ export default class MenuSubItem extends React.Component{
   }
 
   componentDidMount(){
-    this.dimensions  = ReactDOM.findDOMNode(this).parentNode.getBoundingClientRect()
+    if(ReactDOM.findDOMNode(this).parentNode)
+      this.dimensions = ReactDOM.findDOMNode(this).parentNode.getBoundingClientRect()
   }
 
   onMouseEnter = (e) => {

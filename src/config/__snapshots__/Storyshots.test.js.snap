@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Dropdown nested Dropdown 1`] = `
+<div
+  style={
+    Object {
+      "float": "right",
+    }
+  }
+>
+  <div
+    className="dropdown-container"
+    id="cascading-dropdown-btn"
+    onClick={[Function]}
+  >
+    <div
+      className="dropdown-btn"
+    >
+      Press
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Dropdown simple list 1`] = `
+<div
+  className="dropdown-container"
+  id="cascading-dropdown-btn"
+  onClick={[Function]}
+>
+  <div
+    className="dropdown-btn"
+  >
+    <div>
+      Press
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Menu left top aligned menu 1`] = `
+<div
+  className="menu-container"
+  style={Object {}}
+>
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    Hello brother
+  </div>
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    Hello brother
+  </div>
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    Hello brother
+  </div>
+  <div
+    className="list-item"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      className="item-title menu-list"
+      onClick={[Function]}
+    >
+      hover me...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Menu list-item 1`] = `
+Array [
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+  <div
+    className="menu-list"
+    onClick={[Function]}
+  >
+    <span>
+      <input
+        type="checkbox"
+      />
+    </span>
+    Hello brother
+  </div>,
+]
+`;
+
+exports[`Storyshots Menu right top aligned menu 1`] = `
+<div
+  className="right-top-align"
+  style={
+    Object {
+      "float": "right",
+      "width": "200px",
+    }
+  }
+>
+  <div
+    className="menu-container"
+    style={Object {}}
+  >
+    <div
+      className="menu-list"
+      onClick={[Function]}
+    >
+      Hello brother
+    </div>
+    <div
+      className="menu-list"
+      onClick={[Function]}
+    >
+      Hello brother
+    </div>
+    <div
+      className="menu-list"
+      onClick={[Function]}
+    >
+      Hello brother
+    </div>
+    <div
+      className="list-item"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        className="item-title menu-list"
+        onClick={[Function]}
+      >
+        hover me...
+      </div>
+    </div>
+  </div>
+</div>
+`;

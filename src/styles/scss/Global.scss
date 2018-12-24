@@ -6,3 +6,36 @@
     border-radius: $round-2;
     box-shadow: $dropdown-shadow; 
 }
+
+
+// .fade-appear{
+//     max-width: 0;
+//     padding: 0px;
+//     overflow: hidden;
+// }
+
+// .fade-appear.fade-appear-active{
+//     max-width: 100vh;
+//     overflow: hidden;
+//     transition: all .1s ease-in;
+// }
+
+// .fade-enter {
+//     max-height: 0;
+//     overflow: hidden;
+// }
+  
+// .fade-enter.fade-enter-active {
+//     max-height: 500px;
+//     transition: max-height 1s cubic-bezier(.075, .82, .165, 1);
+// }
+
+// .fade-exit {
+//     max-height: 1;
+//     overflow: hidden;
+// }
+
+// .fade-exit.fade-exit-active {
+//     max-height: 0.01;
+//     transition: max-height 300ms cubic-bezier(.075, .82, .165, 1);
+// }   

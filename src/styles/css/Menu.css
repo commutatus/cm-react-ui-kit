@@ -131,6 +131,9 @@ To be used for rendering a different layout. xs is for small-phones, sm for medi
     .menu-container .menu-list:hover {
       background-color: #F4F5F7; }
 
+.menu-list-active {
+  background-color: #F4F5F7; }
+
 .sub-menu-list {
   position: absolute;
   width: 120px;

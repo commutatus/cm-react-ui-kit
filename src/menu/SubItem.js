@@ -54,7 +54,7 @@ export default class MenuSubItem extends React.Component{
         onMouseLeave={this.onMouseLeave}  
         style={{position: "relative"}}
       >
-        <div className="item-title menu-list" onClick={this.handleClick}>
+        <div className={`item-title menu-list ${showMore ? 'menu-list-active' : ''}`} onClick={this.handleClick}>
           {this.props.title}
         </div>
         {

@@ -18,11 +18,13 @@
 
 .collapse-appear{
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
 }
 
 .collapse-appear.collapse-appear-active{
     max-height: 500px;
+    opacity: 1;
     transition: max-height 6s cubic-bezier(.075, .82, .165, 1);
 }
 

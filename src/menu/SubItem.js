@@ -17,7 +17,7 @@ export default class MenuSubItem extends React.Component{
 
   onMouseEnter = (e) => {
     this.top = e.target.offsetTop
-    this.setState({showMore: true})
+    this.setState({showMore: true, showTransition: true})
   }
   
   onMouseLeave = (e) => {
@@ -46,7 +46,7 @@ export default class MenuSubItem extends React.Component{
   
 
   render(){
-    let {showMore} = this.state    
+    let {showMore, showTransition} = this.state    
     return(
       <div
         className="list-item"
@@ -58,12 +58,14 @@ export default class MenuSubItem extends React.Component{
           {this.props.title}
         </div>
         {
-          (showMore) &&
+          showTransition &&
           <CSSTransition
-            in={true}
-            appear={true}
-            timeout={600}
+            in={showMore}
+            appear={showMore}
+            timeout={250}
             classNames="fade"
+            unmountOnExit
+            onExited={() => this.setState({showTransition: false})}
           >
             <div className="sub-menu-list" style={{...(this._getStyle(this.dimensions))}}>
               {

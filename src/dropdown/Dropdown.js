@@ -10,6 +10,11 @@ class Dropdown extends React.Component{
 			showDropdown: false
 		}
   }
+	
+	componentWillUnmount() {
+		this.elem.remove()
+		window.removeEventListener('click', this._handleOutsideClick)
+	}
 
 	_handleClick = () => {
 		let {showDropdown} = this.state
@@ -22,11 +27,13 @@ class Dropdown extends React.Component{
   }
 
 	_createDropdownElement = () => {
-    let elem = document.createElement('div')
-    elem.style = "position: relative; left: 0px; top: 0px;"
-    elem.id = "dropdown"
-    document.body.appendChild(elem)
-    this.elem = elem
+		if(!this.elem){
+			let elem = document.createElement('div')
+			elem.style = "position: relative; left: 0px; top: 0px;"
+			elem.id = "dropdown"
+			document.body.appendChild(elem)
+			this.elem = elem
+		}
 	}
 
 	_getStyle = (dimensions) => {
@@ -38,9 +45,6 @@ class Dropdown extends React.Component{
     return {left: left, top: bottom}
   }
 
-	startDebugging = (node) => {
-		console.log(node)
-	}
 	_getDropdown = () => {
 		let { dropdownChild } = this.props
 		let { left, bottom } = this.dimensions
@@ -67,10 +71,6 @@ class Dropdown extends React.Component{
         window.removeEventListener('click', this._handleOutsideClick)
       })
 		}
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('click', this._handleOutsideClick)
 	}
 
 	render() {

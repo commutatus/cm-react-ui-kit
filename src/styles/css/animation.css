@@ -1,0 +1,22 @@
+.slide-in-appear {
+  height: 0px;
+  width: 0px; }
+
+.slide-in-appear-active {
+  background: red;
+  height: 500px;
+  width: 500px;
+  transition: all 5s linear; }
+
+.slide-in-enter-done {
+  background: red;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black; }
+
+.slide-in-exit {
+  background: white;
+  height: 0px;
+  width: 0px;
+  border: none;
+  transition: all 5s linear; }

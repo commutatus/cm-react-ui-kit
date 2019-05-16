@@ -13,6 +13,7 @@ addDecorator(
 function loadStories() {
   require('../src/menu/stories');
   require('../src/dropdown/stories')
+  require('../src/animation/stories')
   // You can require as many stories as you need.
 }
 

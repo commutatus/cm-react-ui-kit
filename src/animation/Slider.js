@@ -1,8 +1,9 @@
 import React from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group';
 import { render } from 'react-dom';
+import '../styles/css/animation.css'
 
-export class Right extends React.Component{
+class Slider extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -17,12 +18,22 @@ export class Right extends React.Component{
   render() {
     let {show} = this.props
     return(
-      <CSSTransition
-        in={show}
-        appear={show}
-      >
-        
-      </CSSTransition>
+      <div>
+        <button onClick={() => this.setState({unmount: true})}>click to unmount</button>
+        <CSSTransition
+          in={!this.state.unmount}
+          appear={!this.state.unmount}
+          timeout={5000}
+          classNames="slide-in"
+          unmountOnExit
+        >
+          <div>
+            testing
+          </div>
+        </CSSTransition>
+      </div>
     )
   }
 }
+
+export default Slider;

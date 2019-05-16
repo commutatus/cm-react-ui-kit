@@ -1,0 +1,12 @@
+@import 'variables';
+
+@mixin dropdownFont {
+    color: #4A4A4A;
+    font-size: $t4-text;
+}
+
+@mixin dropdownCardUi {
+    border-radius: $round-2;	
+    background-color: $white;	
+    box-shadow: $dropdown-shadow;
+}

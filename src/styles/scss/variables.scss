@@ -1,0 +1,159 @@
+/* Color Variables*/
+$lda-green: #19B99A;
+$lda-yellow: #FEC845;
+$lda-red: #F15B43;
+$lda-purple: #965BA5;
+$red: #F85A40;
+$orange: #F48924;
+$yellow: #FFC845;
+$green: #30C39E;
+$match-green: #7ED321;
+$teal: #0A8EA0;
+$blue: #037ef3;
+$dark-white: #F3F4F7;
+$white: #fff;
+$off-white: #f9f9f9;
+$search-color: #e5e5e5;
+$background-color: #f9f9f9;
+$light-grey: #CACCD1;
+$dark-grey: #52565E;
+$search-grey: #ababab;
+$heading-color: #777;
+$text-color: #555;
+$dark-text-color: #4A4A4A;
+$line: #cbcbcb;
+$dim-grey: #9b9b9b;
+$new-red: #ff6a6a;
+$overlay: rgba(0,0,0,0.5);
+$overlay-light: rgba(0,0,0,0.2);
+$overlay-dark: rgba(0,0,0,0.7);
+$overlay-white: rgba(255,255,255,0.5);
+/* Typography */
+$primary-font: 'Lato', sans-serif;
+$largest-text: 64px;
+$largest-text-2: 58px;
+$largest-text-3: 52px;
+$heading-text-primary: 30px;
+$heading-text-secondary: 24px;
+$heading-text-tertiary: 22px;
+$h1-text: 36px;
+$h2-text: 28px;
+$h3-text: 22px;
+$h4-text: 25px;
+$t1-text: 20px;
+$t2-text: 18px;
+$t3-text: 16px;
+$t4-text: 14px;
+$t5-text: 13px;
+$t6-text: 12px;
+
+//font-weight
+$w6-text: 600;
+
+/* Card Shadows (Mostly going to be using $shadow-1) */
+$shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$card-shadow: 0 17px 27px -9px rgba(189,189,189,1);
+$app-card-shadow: 0 2px 12px 1px rgba(122,122,122,0.3);
+$app-card-shadow-hover: 0 2px 24px 4px rgba(122,122,122,0.3);
+$card-shadow-hover: 0 17px 27px -2px rgba(189,189,189,1);
+$button-shadow: 0 2px 45px 0 rgba(0, 0, 0, 0.5), 0 2px 36px 0 rgba(248, 90, 64, 0.66);
+$shadow-top: 0 1px 47px 1px rgba(0,0,0,0.12);
+$shadow-in: inset 0 0 15px -1px rgba(0,0,0,0.75);
+$shadow-in-2: inset 0 0 35px -1px rgba(0,0,0,0.75);
+$nav-shadow: 0 1px 2px rgba(0,0,0,0.16),0 2px 4px rgba(0,0,0,0.23);
+$bluebg-shadow: 2px 6px 84px -6px rgba(51,51,51,1);
+$dropdown-shadow: 0 2px 8px rgba(0,0,0,0.15);
+/* Border */
+$border-1: 1px solid #eee;
+$border-2: 2px solid #eee;
+$border-3: 1px solid white;
+$border-4: 2px solid gray;
+$border-5: 1px solid #999;
+$border-6: 1px solid #D4D4D4;
+$analytics-border-1: 1px solid #ECECEC;
+$analytics-border-2: .5px solid #ECECEC;
+$border-blue: 1px solid $blue;
+$border-white: 1px solid $white;
+/* Card Border Radius*/
+$round-0: 0;
+$round-1: 1px;
+$round-2: 2px;
+$round-3: 3px;
+$round-4: 4px;
+$round-5: 5px;
+$round-6: 6px;
+$round-8: 8px;
+$round: 50%;
+/* Breakpoints
+How to use-
+
+.class-to-be-used-on {
+     @include breakpoint($variable-name) {
+
+       #CSS styles here
+     }
+   }
+
+*/
+$small-phones: 320px 480px;
+$medium-phones: 375px 500px;
+$large-phones: 410px 600px;
+$tablets: 768px 1024px;
+$small-laptops: 1111px 1450px;
+$large-laptops: 1451px;
+/* Media Query Classes
+
+To be used for rendering a different layout. xs is for small-phones, sm for medium-phones md for tablets, lg for small laptops.
+
+*/
+.hidden-xs-up {
+  display: none !important;
+}
+@media (max-width: 575px) {
+  .hidden-xs-down {
+    display: none !important;
+  }
+}
+@media (min-width: 576px) {
+  .hidden-sm-up {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-sm-down {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .hidden-md-up {
+    display: none !important;
+  }
+}
+@media (max-width: 991px) {
+  .hidden-md-down {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important;
+  }
+}
+@media (max-width: 1199px) {
+  .hidden-lg-down {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-xl-up {
+    display: none !important;
+  }
+}
+@media (max-width: 1200px) {
+  .hidden-xl-down {
+    display: none !important;
+  }
+}

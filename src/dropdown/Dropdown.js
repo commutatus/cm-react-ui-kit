@@ -27,13 +27,11 @@ class Dropdown extends React.Component{
   }
 
 	_createDropdownElement = () => {
-		if(!this.elem){
-			let elem = document.createElement('div')
-			elem.style = "position: relative; left: 0px; top: 0px;"
-			elem.id = "dropdown"
-			document.body.appendChild(elem)
-			this.elem = elem
-		}
+		let elem = document.createElement('div')
+		elem.style = "position: relative; left: 0px; top: 0px;"
+		elem.id = "dropdown"
+		document.body.appendChild(elem)
+		this.elem = elem
 	}
 
 	_getStyle = (dimensions) => {

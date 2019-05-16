@@ -22,14 +22,14 @@ class Dropdown extends React.Component{
 			this.dimensions = document.getElementById('dropdown-btn').getBoundingClientRect();
       window.addEventListener('click', this._handleOutsideClick)
       this._createDropdownElement()
-      this.setState({showDropdown: !showDropdown})
+      this.setState({showDropdown: true})
     }
   }
 
 	_createDropdownElement = () => {
 		let elem = document.createElement('div')
 		elem.style = "position: relative; left: 0px; top: 0px;"
-		elem.id = "dropdown"
+		elem.id = "massd-dropdown"
 		document.body.appendChild(elem)
 		this.elem = elem
 	}
@@ -61,13 +61,12 @@ class Dropdown extends React.Component{
 	}
 
 	_handleOutsideClick = (e) => {
-    let elem = document.getElementById("dropdown")
+    let elem = document.getElementById("massd-dropdown")
     let elemBtn = document.getElementById("dropdown-btn")
-		if(!elem.contains(e.target) && !elemBtn.contains(e.target)){
-      elem.remove()
-			this.setState({showDropdown: false}, () => {
-        window.removeEventListener('click', this._handleOutsideClick)
-      })
+		if(!elem.contains(e.currentTarget) && !elemBtn.contains(e.currentTarget)){
+			window.removeEventListener('click', this._handleOutsideClick)
+			elem.remove()
+			this.setState({showDropdown: false})
 		}
 	}
 

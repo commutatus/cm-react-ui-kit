@@ -63,7 +63,7 @@ class Dropdown extends React.Component{
 	_handleOutsideClick = (e) => {
     let elem = document.getElementById("massd-dropdown")
     let elemBtn = document.getElementById("dropdown-btn")
-		if(!elem.contains(e.currentTarget) && !elemBtn.contains(e.currentTarget)){
+		if(!elem.contains(e.target) && !elemBtn.contains(e.target)){
 			window.removeEventListener('click', this._handleOutsideClick)
 			elem.remove()
 			this.setState({showDropdown: false})

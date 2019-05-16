@@ -24,6 +24,9 @@
     "build": "npm-run-all clean build-css build-assets build-babel",
     "dev": "npm-run-all --parallel watch-css storybook",
     "clean": "rimraf lib",
+    "buildmajor": "npm version major && npm build",
+    "buildminor": "npm version minor && npm build",
+    "buildpatch": "npm version patch && npm build",
     "test": "jest"
   },
   "dependencies": {

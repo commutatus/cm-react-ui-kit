@@ -12,7 +12,7 @@ class Dropdown extends React.Component{
   }
 	
 	componentWillUnmount() {
-		this.elem.remove()
+		this.elem && this.elem.remove()
 		window.removeEventListener('click', this._handleOutsideClick)
 	}
 

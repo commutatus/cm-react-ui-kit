@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import '../styles/css/Dropdown.css'
+import PropTypes from 'prop-types';
+import classnames from 'classnames'
+import { CSSTransition } from 'react-transition-group';
+import '../styles/DropdownNew.css'
 
 class Dropdown extends React.Component{
 	constructor(props){
@@ -10,27 +12,33 @@ class Dropdown extends React.Component{
 			showDropdown: false
 		}
   }
-	
-	componentWillUnmount() {
-		this.elem.remove()
-		window.removeEventListener('click', this._handleOutsideClick)
-	}
+
+  componentDidUpdate(oldProps, oldState){
+    if(this.state.showDropdown && !oldState.showDropdown){
+      document.addEventListener('click', this._handleOutsideClick)
+      
+    }
+    if(!this.state.showDropdown && oldState.showDropdown){
+      if(this.elem)
+			this.elem.remove()
+	  	document.removeEventListener('click', this._handleOutsideClick)
+    }
+  }
 
 	_handleClick = () => {
-		let {showDropdown} = this.state
+    let {showDropdown} = this.state
     if(!showDropdown){
-			this.dimensions = document.getElementById('dropdown-btn').getBoundingClientRect();
-      window.addEventListener('click', this._handleOutsideClick)
+			this.dimensions = this.btnNode.getBoundingClientRect();
       this._createDropdownElement()
-      this.setState({showDropdown: !showDropdown})
+      this.setState({showDropdown: true})
     }
   }
 
 	_createDropdownElement = () => {
-		if(!this.elem){
+		if(!this.elem && this.state.usePortal){
 			let elem = document.createElement('div')
 			elem.style = "position: relative; left: 0px; top: 0px;"
-			elem.id = "dropdown"
+			elem.id = "cm-dropdown"
 			document.body.appendChild(elem)
 			this.elem = elem
 		}
@@ -47,13 +55,13 @@ class Dropdown extends React.Component{
 
 	_getDropdown = () => {
 		let { dropdownChild } = this.props
-		let { left, bottom } = this.dimensions
+		// let { left, bottom } = this.dimensions
 		return(
-			<div className="dropdown-body" style={{position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9}}>
+			<div className="cm-dropdown-body" style={{position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9}}>
 				<CSSTransition
 					in={this.state.showDropdown}
 					appear={this.state.showDropdown}
-					timeout={600}
+					timeout={100}
 					classNames="collapse"
 				>
 					{dropdownChild}
@@ -63,37 +71,71 @@ class Dropdown extends React.Component{
 	}
 
 	_handleOutsideClick = (e) => {
-    let elem = document.getElementById("dropdown")
-    let elemBtn = document.getElementById("dropdown-btn")
-		if(!elem.contains(e.target) && !elemBtn.contains(e.target)){
-      elem.remove()
-			this.setState({showDropdown: false}, () => {
-        window.removeEventListener('click', this._handleOutsideClick)
-      })
-		}
+    // if(this.state.showDropdown){
+      if(this.state.usePortal){
+        let elem = document.getElementById("cm-dropdown")
+        let elemBtn = document.getElementById("cm-dropdown-btn")
+        if(elem && !elem.contains(e.target) && !elemBtn.contains(e.target)){
+          elem.remove()
+          this.setState({showDropdown: false})
+        }
+      }
+      else{
+        if(this.containerNode && !this.containerNode.contains(e.target)){
+          this.setState({showDropdown: false})
+        }
+      }
+    // }
 	}
 
 	render() {
+		let {
+      usePortal, 
+      showArrow, 
+      dropdownStyle, 
+      dropdownClassname
+    } = this.props
+    let {showDropdown} = this.state
+    let containerStyle = !usePortal ? this._getStyle(this.dimensions) : {}
 		return(
-			<div className="dropdown-container">
+      <div 
+        ref={node => this.containerNode = node} 
+        className={classnames("cm-dropdown-container", dropdownClassname)}
+        style={{...containerStyle, dropdownStyle}}
+      >
 				<div 
-					id="dropdown-btn" 
+          id="cm-dropdown-btn"
+          ref={node => this.btnNode = node}
 					onClick={this._handleClick} 
-					className="dropdown-btn"
+					className="cm-dropdown-btn"
 				>
-					{this.props.children}
+          {this.props.children}
+          {
+            showArrow && <span><i className={`cm cm-icon-arrow-${showDropdown ? 'up' : 'down'}`} /></span>
+          }
 				</div>
 					{
-						this.state.showDropdown && 
+						usePortal
+						?
+						showDropdown &&
 						ReactDOM.createPortal(
 							this._getDropdown(),
 							this.elem
 						)
+						:
+						showDropdown && this._getDropdown()
 					}
 			</div>
 		)
 	}
 }
 
+Dropdown.propTypes = {
+	usePortal: PropTypes.bool, 
+	showArrow: PropTypes.bool, 
+	dropdownStyle: PropTypes.string, 
+	dropdownClassname: PropTypes.string,
+	children: PropTypes.node,
+}
 
 export default Dropdown

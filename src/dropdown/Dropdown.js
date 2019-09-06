@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import classnames from 'classnames'
 import { CSSTransition } from 'react-transition-group';
-import '../styles/scss/DropdownNew.css'
+import '../styles/css/Dropdown.css'
 
 class Dropdown extends React.Component{
 	constructor(props){

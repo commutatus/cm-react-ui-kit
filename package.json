@@ -1,18 +1,17 @@
 {
-  "name": "massd",
-  "version": "1.0.11",
-  "description": "",
+  "name": "@commutatus/cm-react-ui-kit",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viveksri96/massd.git"
+    "url": "git+https://github.com/commutatus/cm-react-ui-kit.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/viveksri96/massd/issues"
+    "url": "https://github.com/commutatus/cm-react-ui-kit/issues"
   },
-  "homepage": "https://github.com/viveksri96/massd#readme",
+  "homepage": "https://github.com/commutatus/cm-react-ui-kit#readme",
   "engine": ">= 8.9.0",
   "main": "./lib",
   "scripts": {
@@ -81,5 +80,9 @@
     "webpack-dev-server": "^3.1.4",
     "webpack-hot-middleware": "^2.22.3",
     "webpack-node-externals": "^1.7.2"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "description": ""
 }

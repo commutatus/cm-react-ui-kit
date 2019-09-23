@@ -53,11 +53,11 @@ class Dropdown extends React.Component{
     return {left: left, top: bottom}
   }
 
-	_getDropdown = () => {
+	_getDropdown = (isPortal) => {
 		let { dropdownChild } = this.props
 		// let { left, bottom } = this.dimensions
 		return(
-			<div className="cm-dropdown-body" style={{position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9}}>
+			<div className="cm-dropdown-body" style={isPortal ? {position: "fixed", ...(this._getStyle(this.dimensions)), zIndex: 9} : {position: 'absolute'}}>
 				<CSSTransition
 					in={this.state.showDropdown}
 					appear={this.state.showDropdown}
@@ -95,8 +95,8 @@ class Dropdown extends React.Component{
       dropdownStyle, 
       dropdownClassname
     } = this.props
-    let {showDropdown} = this.state
-    let containerStyle = !usePortal ? this._getStyle(this.dimensions) : {}
+		let {showDropdown} = this.state
+    let containerStyle = usePortal ? this._getStyle(this.dimensions) : {position: 'relative'}
 		return(
       <div 
         ref={node => this.containerNode = node} 
@@ -119,7 +119,7 @@ class Dropdown extends React.Component{
 						?
 						showDropdown &&
 						ReactDOM.createPortal(
-							this._getDropdown(),
+							this._getDropdown(true),
 							this.elem
 						)
 						:

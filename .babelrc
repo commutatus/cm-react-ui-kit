@@ -1,0 +1,12 @@
+{
+    "babel": {
+      "presets": [
+        [
+          "react-app",
+          {
+            "absoluteRuntime": false
+          }
+        ]
+      ]
+    }
+  }

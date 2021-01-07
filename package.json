@@ -1,31 +1,36 @@
 {
   "name": "cm-react-ui-kit",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "Design system",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commutatus/cm-react-ui-kit.git"
+  },
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "babel-eslint": "^10.1.0",
-    "node-sass": "4.14.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "polished": "^3.6.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "cross-env BABEL_ENV=production babel src -d dist"
+    "build-storybook-docs": "build-storybook -s public --docs",
+    "release": "auto shipit"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -39,18 +44,35 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@storybook/addon-actions": "^6.1.11",
-    "@storybook/addon-essentials": "^6.1.11",
-    "@storybook/addon-links": "^6.1.11",
-    "@storybook/node-logger": "^6.1.11",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.11",
-    "cross-env": "^7.0.3",
-    "prettier": "^2.2.1"
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
   },
-  "main": "index.js",
-  "author": "Vivek Srivastava <vivsri95@gmail.com>",
-  "license": "MIT"
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-a11y": "^6.0.21",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/node-logger": "^6.0.21",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.21",
+    "auto": "^9.53.1",
+    "babel-loader": "^8.1.0",
+    "chromatic": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "prettier": "2.1.2",
+    "react-is": "^16.13.1"
+  },
+  "bugs": {
+    "url": "https://github.com/commutatus/cm-react-ui-kit/issues"
+  },
+  "homepage": "https://github.com/commutatus/cm-react-ui-kit#readme"
 }
